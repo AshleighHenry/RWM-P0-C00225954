@@ -2,6 +2,12 @@
 using NUnit.Framework;
 using UnityEngine;
 
+//Name: FizzBuzz
+//Replace integers that divide by 3 with 3, numbers that divide by 5 with 5 and numbers that divide by 3 AND 5 with 0. Leave all other numbers unchanged.
+//Sample Input: 4 3 6 30 10 12
+//Sample Output: 4 3 3 0 5 3
+
+
 namespace Tests
 {
     public class CubeFilterTest
@@ -10,7 +16,7 @@ namespace Tests
         public void CubeFilterSimple()
         {
 
-           
+
 
             int[] input = { 1, 3, 5, 7, 9, 999 };
             int[] output = CubeFilter.cubes(input);
@@ -24,5 +30,25 @@ namespace Tests
             // due to language of report. avoid error when reading the debug output.
         }
 
+
+        [Test]
+        public void FizzBuzzSimple()
+        {
+            int[] input = { 4, 3, 6, 30, 10, 12 };
+            int[] output = CubeFilter.FizzBuzz(input);
+            int[] expected = { 4,3, 3, 0, 5, 3 };
+
+            CollectionAssert.AreEqual(expected, output);
+        }
+
+        [Test]
+        public void FizzBuzzNegative()
+        {
+            int[] input = { -4, -3, -6, -30, -10, -12 };
+            int[] output = CubeFilter.FizzBuzz(input);
+            int[] expected = { -4, 3, 3, 0, 5, 3 };
+
+            CollectionAssert.AreEqual(expected, output);
+        }
     }
 }
